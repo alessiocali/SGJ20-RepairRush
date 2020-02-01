@@ -30,6 +30,8 @@ public class Shooter : PowerUp
         }
 
         m_ShotedShoot++;
+
+        SetAnimatorShooting();
     }
 
     protected override PowerUp CreateInternal()
@@ -39,5 +41,14 @@ public class Shooter : PowerUp
         copy.m_Projectile = m_Projectile;
         copy.m_AvailableNumberOfShoots = m_AvailableNumberOfShoots;
         return copy;
+    }
+
+    private void SetAnimatorShooting()
+    {
+        Animator animator = m_PickerPlayerComponent.gameObject.GetComponent<Animator>();
+        if (animator)
+        {
+            animator.SetTrigger("Shoot");
+        }
     }
 }

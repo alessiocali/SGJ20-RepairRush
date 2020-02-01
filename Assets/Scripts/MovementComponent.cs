@@ -34,6 +34,16 @@ public class MovementComponent : MonoBehaviour
         Vector3 axis = Vector3.Cross(-transform.forward, m_DesiredDirection);
         m_Rigidbody.angularVelocity = (axis.sqrMagnitude > 0 ? axis : transform.up)
             * Mathf.Clamp(desiredRotationAngle - 0.3f, 0f, m_MaxRotationSpeed);
+
+        UpdateAnimatorSpeed(m_Rigidbody.velocity.magnitude);
     }
 
+    private void UpdateAnimatorSpeed(float speed)
+    {
+        Animator animator = gameObject.GetComponent<Animator>();
+        if (animator)
+        {
+            animator.SetFloat("Speed", speed);
+        }
+    }
 }

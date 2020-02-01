@@ -45,7 +45,31 @@ public class PlayerComponent : MovementComponent
 
     private PlayerState m_PlayerState;
     
-    private void SetPlayerState(PlayerState playerState) { m_PlayerState = playerState; }
+    private void SetPlayerState(PlayerState playerState) 
+    { 
+        m_PlayerState = playerState;
+        string stateMachineTrigger;
+        switch (m_PlayerState)
+        {
+            case PlayerState.Dashing:
+                stateMachineTrigger = "Dash";
+                break;
+            case PlayerState.Staggering:
+                stateMachineTrigger = "Stagger";
+                break;
+            case PlayerState.Regular:
+            case PlayerState.Invincible:
+            default:
+                stateMachineTrigger = "Idle";
+                break;
+        }
+
+        Animator animator = gameObject.GetComponent<Animator>();
+        if (animator)
+        {
+            animator.SetTrigger(stateMachineTrigger);
+        }
+    }
 
     public bool IsDashing
     {
