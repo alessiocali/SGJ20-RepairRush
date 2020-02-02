@@ -365,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &284614195
 Light:
   m_ObjectHideFlags: 0
@@ -6672,6 +6672,12 @@ PrefabInstance:
       propertyPath: m_SpawnAreas.Array.data[0].height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8556525608751658996, guid: 85d0125e8a7605948ba865cb4e2d528c,
+        type: 3}
+      propertyPath: m_PrefabsToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 3181473812642477708, guid: a89f36e5ae42d254f900bbaeb8d922c8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d0125e8a7605948ba865cb4e2d528c, type: 3}
 --- !u!1001 &4205157848942506507

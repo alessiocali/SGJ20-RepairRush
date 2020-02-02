@@ -15,5 +15,5 @@ MonoBehaviour:
   m_PowerUpImage: {fileID: 21300000, guid: 09b29baac2aa1c04bb11790d1747d268, type: 3}
   m_Projectile: {fileID: 5177058440870391628, guid: cefb69fcdff246845abaca0c8cf25594,
     type: 3}
-  m_ShootSpeed: 15
+  m_ShootSpeed: 25
   m_AvailableNumberOfShoots: 1
