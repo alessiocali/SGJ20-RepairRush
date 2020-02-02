@@ -11,6 +11,8 @@ public class InputManagerComponent : MonoBehaviour
     {
         if (GameHelpers.GetGameManager().IsGameOver && Input.GetButtonDown("Start"))
         {
+            GameHelpers.GetGameManager().OnGameRestarted();
+            OnGameRestarted();
             Scene currentScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currentScene.name, LoadSceneMode.Single);
         }
@@ -64,5 +66,10 @@ public class InputManagerComponent : MonoBehaviour
     public void OnGameWon()
     {
         m_IsActive = false;
+    }
+
+    public void OnGameRestarted()
+    {
+        m_IsActive = true;
     }
 }

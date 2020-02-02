@@ -8,6 +8,8 @@ public class UIManagerComponent : MonoBehaviour
 {
     public List<GameObject> m_PlayerHUDs = new List<GameObject>();
     public List<GameObject> m_PlayerPowerUpImageSlots = new List<GameObject>();
+    public List<GameObject> m_PlayerRepairHUDs = new List<GameObject>();
+
     public GameObject m_GameHUD;
     public GameObject m_VictoryHUD;
     public GameObject m_VictoryText;
@@ -30,6 +32,9 @@ public class UIManagerComponent : MonoBehaviour
         {
             SetPlayerState(playerComponent);
             GetPowerUpImageSlotForPlayer(playerComponent).sprite = playerComponent.GetPowerUpImage();
+
+            m_PlayerRepairHUDs[playerComponent.PlayerNumber].SetActive(playerComponent.FixStationIsNearby
+                && playerComponent.m_PartsCollected >= playerComponent.m_CurrentStage.m_PartsNeeded);
         }
     }
 

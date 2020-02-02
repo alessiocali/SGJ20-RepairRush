@@ -24,4 +24,9 @@ public class GameManagerComponent : MonoBehaviour
         GameHelpers.GetInputManager().OnGameWon();
         GameHelpers.GetUIManager().OnGameWon(winner);
     }
+
+    public void OnGameRestarted()
+    {
+        IsGameOver = false;
+    }
 }

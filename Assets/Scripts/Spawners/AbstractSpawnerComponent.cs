@@ -89,10 +89,14 @@ public abstract class AbstractSpawnerComponent : MonoBehaviour
     {
         foreach (Rect spawnArea in m_SpawnAreas)
         {
-            Color gizmoColor = Color.green;
-            gizmoColor.a = 0.5f;
             GetCenterAndHalfExtents(spawnArea, out Vector3 center, out Vector3 halfExtents);
-            GizmoHelpers.DrawGizmoRect(center, Quaternion.identity, halfExtents * 2, gizmoColor);
+            halfExtents.y = 0.1f;
+
+            Color color = Color.green;
+            color.a = 0.5f;
+
+            Gizmos.color = color;
+            Gizmos.DrawCube(center, halfExtents * 2);
         }
     }
 }

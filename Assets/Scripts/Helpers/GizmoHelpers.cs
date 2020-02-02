@@ -13,13 +13,4 @@ public static class GizmoHelpers
         Gizmos.DrawSphere(Vector3.zero, radius);
         Gizmos.matrix = oldMatrix;
     }
-
-    public static void DrawGizmoRect(Vector3 position, Quaternion rotation, Vector3 halfExtents, Color gizmoColor)
-    {
-        Matrix4x4 oldMatrix = Gizmos.matrix;
-        Gizmos.color = gizmoColor;
-        Gizmos.matrix = Matrix4x4.TRS(position, rotation, new Vector3(1, GIZMO_DISK_THICKNESS, 1));
-        Gizmos.DrawCube(position, halfExtents);
-        Gizmos.matrix = oldMatrix;
-    }
 }

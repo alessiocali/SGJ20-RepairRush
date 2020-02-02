@@ -92,10 +92,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnAreas:
-  - m_Radius: 1
-    m_LocalPosition: {x: 0, y: 0, z: 0}
+  - serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   m_SpawnTime: 0
-  m_MaxEntitiesToSpawn: 1
   m_PrefabsToSpawn:
-  - {fileID: 3712801500450763412, guid: 41ec4278a0b3ac6459a34adde8b069b2, type: 3}
+  - {fileID: 7319500069774741947, guid: 7a1ea4db57ea0304490a0df893ee13a6, type: 3}
+  m_MaxEntitiesToSpawn: 1
+  m_ShouldTestFallOnTerrain: 0
   m_PlayerNumberToSet: 0

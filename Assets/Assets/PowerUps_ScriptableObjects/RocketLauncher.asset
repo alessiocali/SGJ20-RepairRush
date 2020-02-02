@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd78c993f68ad1429c9a89b8c64c540, type: 3}
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
+  m_PowerUpImage: {fileID: 21300000, guid: 7e3c26aa04a97884ab82d3479528e694, type: 3}
   m_Projectile: {fileID: 5459730980740070340, guid: 8b95db6304f245f4fb8defe262e46d5e,
     type: 3}
   m_ShootSpeed: 15

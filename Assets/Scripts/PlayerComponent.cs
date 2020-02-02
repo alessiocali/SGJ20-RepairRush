@@ -32,8 +32,8 @@ public class PlayerComponent : MovementComponent
     public String PlayerName { get; set; } = "Player";
 
     public PlayerStage m_CurrentStage { get { return m_Stages[m_CurrentStageIdx]; } }
-    public int m_CurrentStageIdx;
-    public uint m_PartsCollected;
+    public int m_CurrentStageIdx { get; private set; }
+    public uint m_PartsCollected { get; private set; }
 
     public Dash m_BasePowerUpData;
 
@@ -41,7 +41,7 @@ public class PlayerComponent : MovementComponent
     private PowerUp m_PickedPowerUp;
     private PowerUp m_ActivePowerUp;
 
-    public bool FixStationIsNearby { private get; set; } = false;
+    public bool FixStationIsNearby { get; set; } = false;
 
     private PlayerState m_PlayerState;
     
@@ -131,11 +131,22 @@ public class PlayerComponent : MovementComponent
         }
         else if (GameHelpers.GetInputManager().IsInteractButtonPressed(PlayerNumber))
         {
-            if (FixStationIsNearby && m_PartsCollected == m_CurrentStage.m_PartsNeeded)
+            if (FixStationIsNearby && CanCompleteStage())
             {
                 OnStageCompleted();
             }
         }
+
+        if (m_ActivePowerUp.ShouldBeDestroyed())
+        {
+            m_ActivePowerUp.Deactivate();
+            m_ActivePowerUp = m_BasePowerUp;
+        }
+    }
+
+    public bool CanCompleteStage()
+    {
+        return m_PartsCollected == m_CurrentStage.m_PartsNeeded;
     }
 
     private void OnValidate()

@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1322432418698280185}
   - component: {fileID: 6351903151753963095}
   - component: {fileID: 5172828595661150716}
-  m_Layer: 0
+  - component: {fileID: -5047533936303720214}
+  m_Layer: 11
   m_Name: PlaceholderPowerUp_SuperSpeed
   m_TagString: RobotPart
   m_Icon: {fileID: 0}
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6901540146734735126}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 51271024642278813, guid: fdf73bcebdcd0e4489a808ad3618f764, type: 3}
 --- !u!23 &1322432418698280185
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 545e60c2aa34f3249909eb27d8e4c431, type: 2}
+  - {fileID: 2100000, guid: ed60e06737043204cbdc570f4105e9be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,6 +111,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 10
   m_CollisionDetection: 0
+--- !u!114 &-5047533936303720214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6901540146734735126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e400fd2037b124ea5f4d702e1a74f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RotationSpeed: 0
+  m_RotationAxis: {x: 0, y: 1, z: 0}
 --- !u!1 &8130690398572448715
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9eca881f356dc2409bbe29018cbf0e4, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  m_PowerUpImage: {fileID: 0}
+  m_PowerUpImage: {fileID: 21300000, guid: f0fcf6bcb8ac7714fa97fea460556b27, type: 3}
   m_DashImpulseForce: 10
-  m_DashCooldown: 2
+  m_DashCooldown: 1
   m_LockedDirectionDuration: 0.7

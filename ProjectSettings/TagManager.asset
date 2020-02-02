@@ -15,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Ground
+  - StaticGeometry
+  - Pickables
+  - Spawner
   - 
   - 
   - 

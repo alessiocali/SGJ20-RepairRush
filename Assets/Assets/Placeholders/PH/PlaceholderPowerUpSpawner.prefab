@@ -47,8 +47,8 @@ MonoBehaviour:
   - serializedVersion: 2
     x: 0
     y: 0
-    width: 37
-    height: 20
+    width: 50
+    height: 40
   m_SpawnTime: 5
   m_PrefabsToSpawn:
   - {fileID: 9195136239814641525, guid: b43c07cb5e7bda24bb263529e638de04, type: 3}
@@ -56,3 +56,4 @@ MonoBehaviour:
   - {fileID: 3142083265476240284, guid: 2cc3ea8a381bffd4ba6a48d399403607, type: 3}
   - {fileID: 6901540146734735126, guid: a12963ffe3091bb4d8b5d9b4fb064909, type: 3}
   m_MaxEntitiesToSpawn: 2
+  m_ShouldTestFallOnTerrain: 1

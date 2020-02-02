@@ -7,6 +7,8 @@ public class MonitoringSpawnerComponent : AbstractSpawnerComponent
     [Min(0)]
     public int m_MaxEntitiesToSpawn;
 
+    public bool m_ShouldTestFallOnTerrain = false;
+
     private readonly List<GameObject> m_SpawnedEntities = new List<GameObject>();
 
     protected override void Update()
@@ -27,7 +29,15 @@ public class MonitoringSpawnerComponent : AbstractSpawnerComponent
             return null;
         }
 
-        var instance = GameObject.Instantiate(GetRandomEntityFromList(), GetRandomSpawnPoint(), Quaternion.identity);
+        GameObject prefab = GetRandomEntityFromList();
+        Vector3 spawnPoint = GetRandomSpawnPoint();
+
+        if (m_ShouldTestFallOnTerrain && !SpawnManagerComponent.WouldFallOnTerrain(prefab, spawnPoint))
+        {
+            return null;
+        }
+
+        var instance = GameObject.Instantiate(prefab, spawnPoint, Quaternion.identity);
         m_SpawnedEntities.Add(instance);
         return instance;
     }

@@ -53,7 +53,7 @@ public class SpawnManagerComponent : MonoBehaviour
         return query.FirstOrDefault();
     }
 
-    private bool WouldFallOnTerrain(GameObject gameObject, Vector3 position)
+    public static bool WouldFallOnTerrain(GameObject gameObject, Vector3 position)
     {
         const float MaxRayCastDistance = 40f;
         const string TerrainTag = "Terrain";
@@ -68,13 +68,27 @@ public class SpawnManagerComponent : MonoBehaviour
         Collider collider = gameObject.GetComponent<Collider>();
         if (collider && !collider.isTrigger)
         {
-            Bounds bounds = collider.bounds;
-            var notTerrainCollisionQuery =
-                from collision in Physics.OverlapBox(hitInfo.point + bounds.center, bounds.extents)
-                where collision.CompareTag(TerrainTag)
-                select collision;
+            Func<Collider[]> colliderFunction = null;
+            Vector3 hitPoint = hitInfo.point;
 
-            wouldOverlapWithGeometry = notTerrainCollisionQuery.Any();
+            if (collider is SphereCollider sphereCollider)
+            {
+                colliderFunction = () => { return Physics.OverlapSphere(hitPoint, sphereCollider.radius); };
+            }
+            else if (collider is BoxCollider boxCollider)
+            {
+                colliderFunction = () => { return Physics.OverlapBox(hitPoint + boxCollider.center, boxCollider.size * 0.5f); };
+            }
+
+            if (colliderFunction != null)
+            {
+                var notTerrainCollisionQuery =
+                    from collision in colliderFunction()
+                    where !collision.CompareTag(TerrainTag)
+                    select collision;
+
+                wouldOverlapWithGeometry = notTerrainCollisionQuery.Any();
+            }
         }
 
         if (wouldOverlapWithGeometry)
@@ -83,17 +97,5 @@ public class SpawnManagerComponent : MonoBehaviour
         }
 
         return true;
-    }
-
-    private bool OverlapsGeometry(GameObject gameObject)
-    {
-        Collider collider = gameObject.GetComponent<Collider>();
-        if (!collider || collider.isTrigger)
-        {
-            return false;
-        }
-
-        Bounds objectBounds = collider.bounds;
-        return Physics.OverlapBox(objectBounds.center, objectBounds.extents).Length != 0;
     }
 }

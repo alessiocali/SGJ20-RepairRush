@@ -19,7 +19,8 @@ public abstract class Projectile : MonoBehaviour
 
         if (other.GetComponentInChildren<PowerUpComponent>() == null
             && other.GetComponentInChildren<StaggerComponent>() == null
-            && other.GetComponentInChildren<RobotPartComponent>() == null)
+            && other.GetComponentInChildren<RobotPartComponent>() == null
+            && other.GetComponentInChildren<FixStationTriggerComponent>() == null)
         {
             GameObject.Destroy(gameObject);
         }
